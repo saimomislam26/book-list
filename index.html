@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <script src="https://kit.fontawesome.com/996973c893.js"></script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+        crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- this is input form section -->
+    <div class="container mt-5">
+        <h2 class="text-center font-weight-bolder">ADD BOOK</h2>
+        <form id="book-form">
+            <label for="Title ">Title</label>
+            <div class="input-group flex-nowrap">
+                <input type="text" class="form-control " placeholder="" aria-label="Username"
+                    aria-describedby="addon-wrapping" id="addtitle">
+            </div>
+            <label for="Author">Author</label>
+            <div class="input-group flex-nowrap">
+                <input type="text" class="form-control " placeholder="" aria-label="Username"
+                    aria-describedby="addon-wrapping" id="addauthor">
+            </div>
+    
+            <label for="price">price</label>
+            <div class="input-group flex-nowrap">
+                <input type="text" class="form-control " placeholder="" aria-label="Username"
+                    aria-describedby="addon-wrapping" id="addprice">
+            </div>
+    
+            <input class="btn btn-primary  u-full-width mt-5" type="submit" value="Add" id="submit">
+
+        
+       
+
+    </div>
+
+        </form>
+            
+    <!-- this is list of book section -->
+
+    <div class="container mt-5 ml-5">
+        <h2 class="text-center font-weight-bolder">Book List</h2>
+        <table class="table table-dark ">
+            <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Price</th>
+                  <th></th>
+                  
+                </tr>
+              </thead>
+              <tbody id = "body">
+                
+              </tbody>    
+        </table>
+        <p id = "test"></p>
+    </div>
+
+
+
+
+
+    <!-- <div class="container parent-div ">
+        <div class="jumbotron back">
+            <div class="div">
+                <div class="row first-row ">
+                    <div class="col first-col text-center text-white">
+                        <h1>To-Do</h1>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="row second-row">
+                    <div class="col second-col text-center">
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control " placeholder="Add a Task" aria-label="Username"
+                                aria-describedby="addon-wrapping" id="addtask">
+                        </div>
+                        <input class="btn btn-primary text-white" type="submit" value="Add" id="submit">
+
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+
+
+
+            <div class="row first-row">
+                <div class="col first-col ">
+                    <h1 class="text-center text-white ">Task List</h1>
+                </div>
+            </div>
+            <div class="row second-row">
+                <div class="col second-col text-center">
+
+                    <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control" placeholder="Filter" aria-label="Username"
+                            aria-describedby="addon-wrapping" id="filter">
+                    </div>
+                </div>
+                <hr>
+                <ol id="list" class="child-div text-white">
+
+                </ol>
+                <hr>
+                <div class="text-center">
+                    <input class="btn btn-primary text-white" type="submit" value="Clear" id="delete">
+                </div>
+                
+
+
+            </div>
+        </div>
+
+    </div> -->
+
+
+
+
+
+
+    <script src="javascript/script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
