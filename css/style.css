@@ -1,10 +1,17 @@
-/* body{
-    background-color: black !important;
-} */
+body{
+    background-color:yellow !important;
+}
 
 .success{
     background-color: green;
 }
 .error{
     background-color: red;
+}
+
+#addtitle,#addauthor,#addprice{
+    font-size: 1em;
+}
+#submit{
+    background-color: rgba(0, 0, 0, 0.849);
 }
