@@ -5,11 +5,13 @@ let price = document.querySelector('#addprice');
 let sub = document.querySelector('#submit');
 let tbody = document.querySelector('#body');
 let form = document.querySelector('#book-form');
+let search = document.querySelector('#search');
 
 //eventListener
 
 form.addEventListener('submit', addbook);
 tbody.addEventListener('click', remove);
+search.addEventListener('keyup',filtered);
 
 
 // class
@@ -175,6 +177,28 @@ function remove(e) {
         console.log(e.target.parentElement.previousElementSibling.textContent.trim());
     }
 }
+function filtered(e){
+   
+    
+    let tests = document.querySelectorAll('td');
+
+    tests.forEach(matched);
+    
+
+}
+
+function matched(i){
+        
+        // let test = document.querySelectorAll('li');
+        let text = search.value.toLowerCase();
+        let item = i.firstChild.textContent;
+        if(item.toLowerCase().indexOf(text)!=-1){
+            i.style.display = 'block';
+        }
+        else{
+            i.style.display = 'none';
+        }
+    }
 
 //reload eventlistener
 document.addEventListener('DOMContentLoaded', Store.printbook());

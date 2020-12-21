@@ -1,5 +1,5 @@
 body{
-    background-color:yellow !important;
+    background-color:thistle !important;
 }
 
 .success{
@@ -9,9 +9,32 @@ body{
     background-color: red;
 }
 
-#addtitle,#addauthor,#addprice{
+#addtitle,#addauthor,#addprice,#search{
     font-size: 1em;
 }
 #submit{
-    background-color: rgba(0, 0, 0, 0.849);
+    background-color: #222222;
 }
+#search{
+    height: 3.2rem;
+    background-color: #222222;
+}
+.input-icons i { 
+    position: absolute; 
+} 
+  
+.input-icons { 
+    width: 100%; 
+    margin-bottom: 10px; 
+    
+} 
+.icon { 
+    padding: 10px; 
+    min-width: 20px; 
+    color:red;
+} 
+.input-field { 
+    width: 100%; 
+    padding: 10px; 
+    
+} 
