@@ -11,7 +11,7 @@ let search = document.querySelector('#search');
 
 form.addEventListener('submit', addbook);
 tbody.addEventListener('click', remove);
-search.addEventListener('keyup',filtered);
+search.addEventListener('keyup', filtered);
 
 
 // class
@@ -63,75 +63,75 @@ class Ui {
         price.value = '';
     }
 
-    showalert(message,classname){
+    showalert(message, classname) {
         let div = document.createElement('div');
         div.className = `alert ${classname} text-white`;
         let container = document.querySelector('.container');
         div.appendChild(document.createTextNode(message));
-        container.insertBefore(div,form);
+        container.insertBefore(div, form);
 
-        setTimeout(function(){
+        setTimeout(function () {
             document.querySelector('.alert').remove();
-        },2000);
+        }, 2000);
 
     }
 
-    static added(message,classname){
+    static added(message, classname) {
         let div = document.createElement('div');
         div.className = `alert ${classname} text-white`;
         let container = document.querySelector('.container');
         div.appendChild(document.createTextNode(message));
-        container.insertBefore(div,form);
+        container.insertBefore(div, form);
 
-        setTimeout(function(){
+        setTimeout(function () {
             document.querySelector('.alert').remove();
-        },2000);
+        }, 2000);
     }
 }
 
-class Store{
-    static getbooks(book){
-    let books;
-    if(localStorage.getItem('books')=== null){
-        books = [];
-    }else{
-        books = JSON.parse(localStorage.getItem('books'));
-    }
-    books.push(book);
-
-    localStorage.setItem('books',JSON.stringify(books));
-    }
-
-    static printbook(){
+class Store {
+    static getbooks(book) {
         let books;
-        if(localStorage.getItem('books')=== null){
+        if (localStorage.getItem('books') === null) {
             books = [];
-        }else{
+        } else {
             books = JSON.parse(localStorage.getItem('books'));
         }
-        books.forEach(book=>{
+        books.push(book);
+
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+
+    static printbook() {
+        let books;
+        if (localStorage.getItem('books') === null) {
+            books = [];
+        } else {
+            books = JSON.parse(localStorage.getItem('books'));
+        }
+        books.forEach(book => {
             Ui.addTobooklist(book);
         });
     }
 
-    static removeFromLS(price){
+    static removeFromLS(price) {
         let books;
-        if(localStorage.getItem('books')=== null){
+        if (localStorage.getItem('books') === null) {
             books = [];
-        }else{
+        } else {
             books = JSON.parse(localStorage.getItem('books'));
         }
-        
-    
-        books.forEach((book,index)=> {
-            if(book.bprice === price){
-                books.splice(index,1);
+
+
+        books.forEach((book, index) => {
+            if (book.bprice === price) {
+                books.splice(index, 1);
             }
         });
-    
-        
-    
-        localStorage.setItem('books',JSON.stringify(books));
+
+
+
+        localStorage.setItem('books', JSON.stringify(books));
     }
 }
 
@@ -145,7 +145,7 @@ function addbook(e) {
     let ui = new Ui();
     if (title.value === '' || author.value === '' || price.value === '') {
 
-        ui.showalert('Fill up all fields','error');
+        ui.showalert('Fill up all fields', 'error');
         //alert('Some Fields Are Empty');
     }
     else {
@@ -155,10 +155,10 @@ function addbook(e) {
         Ui.addTobooklist(book);
         ui.blank();
 
-        Ui.added('Added Successfully','success');
+        Ui.added('Added Successfully', 'success');
         Store.getbooks(book);
 
-        
+
 
     }
 
@@ -172,33 +172,43 @@ function remove(e) {
         let ele1 = ele.parentElement;
 
         ele1.remove();
-        Ui.added('Removed Successfully','success');
+        Ui.added('Removed Successfully', 'success');
         Store.removeFromLS(e.target.parentElement.previousElementSibling.textContent.trim());
         console.log(e.target.parentElement.previousElementSibling.textContent.trim());
     }
 }
-function filtered(e){
-   
-    
-    let tests = document.querySelectorAll('td');
+function filtered(e) {
+    let text = search.value.toLowerCase();
+    let table = document.querySelector('#mytable');
+    let tests = table.getElementsByTagName('tr');
+    tests = Array.from(tests);
+    tests.forEach((item,index) => {
+        let data = tests[index].getElementsByTagName('td')[0];
+        if (data) {
+            let textvalue = data.textContent;
+            if (textvalue.toLowerCase().trim().indexOf(text) != -1) {
+                tests[index].style.display = '';
+            } else {
+                tests[index].style.display = 'none';
+            }
+        }
+    });
 
-    tests.forEach(matched);
-    
 
 }
 
-function matched(i){
-        
-        // let test = document.querySelectorAll('li');
-        let text = search.value.toLowerCase();
-        let item = i.firstChild.textContent;
-        if(item.toLowerCase().indexOf(text)!=-1){
-            i.style.display = 'block';
-        }
-        else{
-            i.style.display = 'none';
-        }
-    }
+// function matched(i){
+
+//         // let test = document.querySelectorAll('li');
+//         let data = 
+//         let item = i.firstChild.textContent;
+//         if(item.toLowerCase().indexOf(text)!=-1){
+//             i.style.display = 'block';
+//         }
+//         else{
+//             i.style.display = 'none';
+//         }
+//     }
 
 //reload eventlistener
 document.addEventListener('DOMContentLoaded', Store.printbook());
