@@ -1,3 +1,5 @@
+//variable
+let myvar;
 //UI Define
 let title = document.querySelector('#addtitle');
 let author = document.querySelector('#addauthor');
@@ -64,28 +66,30 @@ class Ui {
     }
 
     showalert(message, classname) {
+        removealert();
         let div = document.createElement('div');
         div.className = `alert ${classname} text-white`;
         let container = document.querySelector('.container');
         div.appendChild(document.createTextNode(message));
         container.insertBefore(div, form);
 
-        setTimeout(function () {
+        myvar = setTimeout(function () {
             document.querySelector('.alert').remove();
-        }, 2000);
+        }, 3000);
 
     }
 
     static added(message, classname) {
+        removealert();
         let div = document.createElement('div');
         div.className = `alert ${classname} text-white`;
         let container = document.querySelector('.container');
         div.appendChild(document.createTextNode(message));
         container.insertBefore(div, form);
 
-        setTimeout(function () {
+        myvar = setTimeout(function () {
             document.querySelector('.alert').remove();
-        }, 2000);
+        }, 3000);
     }
 }
 
@@ -211,5 +215,13 @@ function filtered(e) {
 //     }
 
 //reload eventlistener
+
+function removealert(){
+    let currentdiv = document.querySelector('.alert');
+    if(currentdiv){
+        currentdiv.remove();
+    }
+    clearTimeout(myvar);
+}
 document.addEventListener('DOMContentLoaded', Store.printbook());
 
